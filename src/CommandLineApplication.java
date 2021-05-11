@@ -38,7 +38,42 @@ public class CommandLineApplication {
 
             Files.createFile(contactFile);
         }
+        Path contactListPath = Paths.get(PathToContactsDirectory,Contacts);
 
+        System.out.println("contactListPath = " + contactListPath); //path to the groceriesList.txt
+
+        List<String> contactsEntry = Arrays.asList("Alex Thoms | 2108576954", "Salim Khan | 3158791229"); //Making the list!
+        System.out.println("contactsEntry = " + contactsEntry); //Voila! There it is! The list to write!
+
+        Files.write(contactListPath, contactsEntry); //Oh, did we write successfully? Go check groceriesList.txt!
+
+        //second idea: Let's print our list of groceries as it stands!
+        System.out.println();
+
+        List<String> contactsList = Files.readAllLines(contactListPath);
+
+        for (int i = 0; i < contactsList.size(); i += 1) {
+            System.out.println((i + 1) + ": " + contactsList.get(i));
+        }
     }
 }
 
+//        do {
+//        System.out.println("What number would you like to go up to?");
+//        int userInt = scanner.nextInt();
+//        System.out.println();
+//        System.out.println("Here is your table!");
+//        System.out.println();
+//        System.out.println("number | squared | cubed");
+//        System.out.println("------ | ------- | -----");
+//        for (int i = 1; i <= userInt; i++) {
+//        //Print out the table;
+//        System.out.printf("%-6d | %-7d | %d\n", i, i * i, i * i * i);
+//        }
+//        System.out.println("Do you want to continue?");
+//        String userResponse = scanner.next();
+//        if (!userResponse.equalsIgnoreCase("y")) {
+//        userContinue = false;
+//        }
+//        } while (userContinue);
+//        }}

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CommandLineApplication {
     public static void main(String[] args) throws IOException{
-        Path filePathtoContacts = Paths.get("./CommandLineApplication/src/ContactBooks/contacts.txt"); //relative path CWD [root] > up through the file chain
+        Path filePathtoContacts = Paths.get("./src/ContactBooks/contacts.txt"); //relative path CWD [root] > up through the file chain
 
 //        Path sameDirectoryPath = Paths.get("../contacts.txt");
 
@@ -19,7 +19,7 @@ public class CommandLineApplication {
         System.out.println("filePathtoContacts = " + filePathtoContacts); //value of Path object? = what we had set / passed as a parameter!
 
         System.out.println("Files.exists(filePathtoContacts) = " + Files.exists(filePathtoContacts));
-        String PathToContactsDirectory = "./CommandLineApplication/src/ContactBooks";
+        String PathToContactsDirectory = "./src/ContactBooks";
         String Contacts = "contacts.txt";
 
 //        System.out.println("Files.exists(sameDirectoryPath) = " + Files.exists(sameDirectoryPath));

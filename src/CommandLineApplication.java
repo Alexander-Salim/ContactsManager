@@ -85,23 +85,23 @@ public class CommandLineApplication {
             case 1:
                 //method to display all
                 DisplayAll();
-
+                break;
             case 2:
                 // method to add new contact
                 AddContact();
-
+                break;
             case 3:
                 //search and display contact by name
                 searchContact();
-
+                break;
             case 4:
                 // method to delete existing contact
                 DeleteContact();
-
+                break;
             case 5:
                 // exit the program
                 System.out.println("Exiting Meow, Bark Bark!");
-
+                break;
             default:
                 System.out.println("Incorrect input please enter 1-5");
                 UserPath(UserInput());

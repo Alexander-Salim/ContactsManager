@@ -13,14 +13,21 @@ public class CommandLineApplication {
     // PATH AS A STRING TO DIRECTORY AND THE FILE ITSELF
     public static String PathToContactsDirectory = "./src/ContactBooks";
     public static String Contacts = "contacts.txt";
+    public static boolean whileCheck = true;
 
     public static void main(String[] args) throws IOException {
-        do {
+        while(whileCheck) {
             menu();
             System.out.println();
             UserPath(UserInput());
-            System.out.println();
-        } while(YesNo());
+        }
+
+//        do {
+//            menu();
+//            System.out.println();
+//            UserPath(UserInput());
+//
+//        } while(whileCheck | YesNo());
 
         // ULTIMATE PATH TO CONTACTS.TXT & CHECK FOR FILE EXISTENCE
 //        Path filePathtoContacts = Paths.get("./src/ContactBooks/contacts.txt");
@@ -100,6 +107,7 @@ public class CommandLineApplication {
                 break;
             case 5:
                 // exit the program
+                whileCheck = false;
                 System.out.println("Exiting Meow, Bark Bark!");
                 break;
             default:

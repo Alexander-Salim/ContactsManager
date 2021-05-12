@@ -17,56 +17,12 @@ public class CommandLineApplication {
 
     public static void main(String[] args) throws IOException {
         while(whileCheck) {
+            pathCreation();
             menu();
             System.out.println();
             UserPath(UserInput());
         }
 
-//        do {
-//            menu();
-//            System.out.println();
-//            UserPath(UserInput());
-//
-//        } while(whileCheck | YesNo());
-
-        // ULTIMATE PATH TO CONTACTS.TXT & CHECK FOR FILE EXISTENCE
-//        Path filePathtoContacts = Paths.get("./src/ContactBooks/contacts.txt");
-//        System.out.println("Files.exists(filePathtoContacts) = " + Files.exists(filePathtoContacts));
-//
-//        // PATH AS A STRING TO DIRECTORY AND THE FILE ITSELF
-//        String PathToContactsDirectory = "./src/ContactBooks";
-//        String Contacts = "contacts.txt";
-//
-//        // PATHS USING STRING PATH
-//        Path contactDirectory = Paths.get(PathToContactsDirectory);
-//        Path contactFile = Paths.get(PathToContactsDirectory, Contacts);
-//
-//        // CHECKING TO SEE FOR FILE EXISTENCE & CREATING THE FILE OR DIRECTORY IF IT DOES NOT EXIST
-//        if(Files.notExists(contactDirectory)){
-//            Files.createDirectories(contactDirectory);
-//        }
-//
-//        if(Files.notExists(contactFile)){
-//            Files.createFile(contactFile);
-//        }
-//
-//        // PATH TO CONTACTS.TXT
-//        Path contactListPath = Paths.get(PathToContactsDirectory,Contacts);
-//
-//        // INITIAL TESTING ENTRIES AS A LIST
-//        List<String> contactsEntry = Arrays.asList("Alex Thoms | 2108576954", "Salim Khan | 3158791229");
-//
-//        // WRITING THE ENTRIES TO THE FILE
-//        Files.write(contactListPath, contactsEntry);
-//        System.out.println();
-//
-//        // REOPEN AND READ OVERWRITTEN FILE WITH ENTRIES
-//        List<String> contactsList = Files.readAllLines(contactListPath);
-//
-//        // PRINTING THE NEW FILE ENTRIES TO THE COMMAND LINE
-//        for (int i = 0; i < contactsList.size(); i += 1) {
-//            System.out.println((i + 1) + ": " + contactsList.get(i));
-//        }
     }
 
     // METHOD TO OUTPUT MENU
@@ -121,7 +77,7 @@ public class CommandLineApplication {
         Path contactListPath = Paths.get(PathToContactsDirectory, Contacts);
         List<String> contactsList = Files.readAllLines(contactListPath);
         for (int i = 0; i < contactsList.size(); i += 1) {
-            System.out.println((i + 1) + ": " + contactsList.get(i));
+            System.out.println(contactsList.get(i));
         }
     }
 
@@ -131,7 +87,7 @@ public class CommandLineApplication {
         System.out.println("Enter contact information as FirstName LastName 1234567890");
         String name = scanner.next() + " " + scanner.next();
         String number = scanner.next();
-        String contact = name + " | " + number;
+        String contact = name + ":" + number;
         Path contactListPath = Paths.get(PathToContactsDirectory, Contacts);
         Files.write(contactListPath, Arrays.asList(contact), StandardOpenOption.APPEND);
     }
@@ -188,33 +144,26 @@ public class CommandLineApplication {
 
     }
 
+    // METHOD FOR CHECKING FILE PATH EXISTANCE AND CREATING IF IT DOES NOT
+    public static void pathCreation() throws IOException {
+//         ULTIMATE PATH TO CONTACTS.TXT & CHECK FOR FILE EXISTENCE
+        Path filePathtoContacts = Paths.get("./src/ContactBooks/contacts.txt");
+
+        // PATH AS A STRING TO DIRECTORY AND THE FILE ITSELF
+        String PathToContactsDirectory = "./src/ContactBooks";
+        String Contacts = "contacts.txt";
+
+        // PATHS USING STRING PATH
+        Path contactDirectory = Paths.get(PathToContactsDirectory);
+        Path contactFile = Paths.get(PathToContactsDirectory, Contacts);
+
+        // CHECKING TO SEE FOR FILE EXISTENCE & CREATING THE FILE OR DIRECTORY IF IT DOES NOT EXIST
+        if(Files.notExists(contactDirectory)){
+            Files.createDirectories(contactDirectory);
+        }
+
+        if(Files.notExists(contactFile)){
+            Files.createFile(contactFile);
+        }
+    }
 }
-
-
-/* THINGS TO DO
-    CREATE A METHOD THAT WILL OUTPUT OUT MENU
-    CREATE A METHOD THAT WILL TAKE INPUT FROM THE USER
-    METHODS OF ACCESSING/CHANGING THE FILE BASED ON THE INPUT
-    ADJUST METHOD TO PRINT ACCORDINGLY
-
-*/
-
-//        do {
-//        System.out.println("What number would you like to go up to?");
-//        int userInt = scanner.nextInt();
-//        System.out.println();
-//        System.out.println("Here is your table!");
-//        System.out.println();
-//        System.out.println("number | squared | cubed");
-//        System.out.println("------ | ------- | -----");
-//        for (int i = 1; i <= userInt; i++) {
-//        //Print out the table;
-//        System.out.printf("%-6d | %-7d | %d\n", i, i * i, i * i * i);
-//        }
-//        System.out.println("Do you want to continue?");
-//        String userResponse = scanner.next();
-//        if (!userResponse.equalsIgnoreCase("y")) {
-//        userContinue = false;
-//        }
-//        } while (userContinue);
-//        }}
